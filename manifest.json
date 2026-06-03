@@ -1,0 +1,42 @@
+{
+  "name": "Axon Skill Templates",
+  "description": "Skill templates for Axon AI assistant",
+  "version": "1.0.0",
+  "skills": [
+    {
+      "name": "项目综合分析",
+      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/project-analysis/SKILL.md",
+      "category": "project-analysis",
+      "tags": ["project", "management", "software", "engineering", "pmbok", "swebok", "ipd", "cmmi"],
+      "level": "advanced"
+    },
+    {
+      "name": "阅读类 Skills",
+      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/SKILL.md",
+      "category": "reading",
+      "tags": ["reading", "comprehension", "analysis"],
+      "level": "intermediate"
+    },
+    {
+      "name": "论文阅读与解读",
+      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/paper-analysis/SKILL.md",
+      "category": "reading",
+      "tags": ["academic", "research", "paper"],
+      "level": "intermediate"
+    },
+    {
+      "name": "新闻简报生成",
+      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/news-briefing/SKILL.md",
+      "category": "reading",
+      "tags": ["news", "briefing", "summary"],
+      "level": "basic"
+    },
+    {
+      "name": "技术文档解读",
+      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/technical-doc/SKILL.md",
+      "category": "reading",
+      "tags": ["technical", "documentation", "api"],
+      "level": "intermediate"
+    }
+  ]
+}
