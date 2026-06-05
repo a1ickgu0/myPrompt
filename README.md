@@ -1,91 +1,128 @@
 # Axon Skill Templates
 
-This repository contains SKILL templates for [Axon](https://github.com/a1ickgu0/chrAIExtension) - an AI-powered Chrome extension.
+Skill 模板库，为 [Axon](https://github.com/a1ickgu0/chrAIExtension) AI 助手提供结构化的 Prompt 能力。
 
-## What is a SKILL?
+## 什么是 Skill？
 
-A SKILL is a structured prompt template that guides the AI to perform specific tasks consistently. Each SKILL is defined in a `SKILL.md` file with YAML frontmatter metadata.
+Skill 是一种结构化的 Prompt 模板，引导 AI 以一致的方式执行特定任务。每个 Skill 定义在一个 `skill.md` 文件中，包含 YAML frontmatter 元数据和详细的执行指令。
 
-## Usage
+## 目录结构
 
-### Import in Axon Settings
+```
+skills/
+├── manifest.json                    # Skill 清单（分类索引）
+├── README.md                        # 本文件
+│
+├── reading/                         # 阅读类分类
+│   ├── _category.md                 # 分类说明（不可调用）
+│   ├── paper-analysis/              # 论文阅读与应用洞察
+│   │   └── skill.md
+│   ├── news-briefing/               # 新闻简报生成
+│   │   └── skill.md
+│   └── industry-intelligence/       # 行业技术情报顾问
+│       └── skill.md
+│
+├── project/                         # 项目类分类
+│   ├── _category.md                 # 分类说明
+│   └── comprehensive-analysis/      # 项目综合分析
+│       └── skill.md
+│
+└── templates/                       # 模板资源（非 Skill）
+    ├── paper-note.md                # 论文阅读笔记模板
+    └── project-checklist.md         # 项目管理检查清单
+```
 
-1. Open Axon Settings
-2. Go to **Library** > **Skills**
-3. Click **Import from URL**
-4. Paste one of these URLs:
+## Skill 清单
 
-**Import all skills via manifest:**
+### 阅读类 Skills
+
+| Skill | 说明 | 级别 |
+|-------|------|------|
+| `paper-analysis` | 从产品研发视角解读学术论文，提取技术创新与产品应用机会 | Intermediate |
+| `news-briefing` | 从新闻报道中提取核心事实，生成结构化简报 | Basic |
+| `industry-intelligence` | 行业报告、技术文章深度分析与咨询建议 | Advanced |
+
+### 项目类 Skills
+
+| Skill | 说明 | 级别 |
+|-------|------|------|
+| `comprehensive-analysis` | 综合运用 PMBOK、SWEBOK、IPD、CMMI 框架全面分析项目 | Advanced |
+
+## 使用方式
+
+### 通过 Manifest 导入全部
+
 ```
 https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/manifest.json
 ```
 
-**Import by category:**
+### 导入单个 Skill
+
+```
+https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/paper-analysis/skill.md
+https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/project/comprehensive-analysis/skill.md
+```
+
+### 导入分类
+
 ```
 https://github.com/a1ickgu0/myPrompt/tree/main/reading
-https://github.com/a1ickgu0/myPrompt/tree/main/project-analysis
+https://github.com/a1ickgu0/myPrompt/tree/main/project
 ```
 
-**Single SKILL:**
-```
-https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/project-analysis/SKILL.md
-https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/SKILL.md
-```
+## Skill 开发指南
 
-## Structure
+### 文件命名规范
 
-```
-myPrompt/
-├── manifest.json              # SKILL Hub 清单
-├── project-analysis/
-│   └── SKILL.md               # 项目综合分析（PMBOK+SWEBOK+IPD+CMMI）
-├── reading/
-│   ├── SKILL.md               # 阅读类 Skills（自动识别内容类型）
-│   ├── paper-analysis/        # 论文解读
-│   ├── news-briefing/         # 新闻简报
-│   └── technical-doc/         # 技术文档解读
-└── references/                 # 参考模板
-```
+- **目录名**：小写字母 + 连字符，如 `paper-analysis`、`industry-intelligence`
+- **文件名**：统一使用 `skill.md`（小写）
+- **分类说明**：使用 `_category.md`（下划线前缀表示不可调用）
 
-## SKILL List
+### Frontmatter 元数据
 
-| Skill | Description | Level | 框架 |
-|-------|-------------|-------|------|
-| 项目综合分析 | 综合运用 PMBOK、SWEBOK、IPD、CMMI 框架全面分析项目 | Advanced | 四框架整合 |
-| 阅读类 Skills | 自动识别内容类型，采用最适合的分析框架 | Intermediate | 多模式 |
-| 论文阅读与解读 | 系统性解读学术论文 | Intermediate | 学术框架 |
-| 新闻简报生成 | 从新闻中提取核心事实 | Basic | 新闻框架 |
-| 技术文档解读 | 解读技术文档和 API 文档 | Intermediate | 技术框架 |
-
-## 项目综合分析 Skill
-
-这是核心 Skill，整合了四大知识体系：
-
-### PMBOK - 项目管理知识体系
-十大知识领域：整合、范围、进度、成本、质量、资源、沟通、风险、采购、相关方管理
-
-### SWEBOK - 软件工程知识体系
-十五个知识领域：需求、设计、构建、测试、维护、配置管理、工程管理、工程过程、模型与方法、质量等
-
-### IPD - 集成产品开发
-六个阶段：概念 → 计划 → 开发 → 验证 → 发布 → 生命周期
-
-### CMMI - 能力成熟度模型集成
-五个等级：初始级 → 已管理级 → 已定义级 → 已量化管理级 → 优化级
-
-## GitLab Support
-
-This repository can also be mirrored to GitLab. Axon supports GitLab URL formats:
-
-```
-https://gitlab.com/your-username/myPrompt/-/raw/main/project-analysis/SKILL.md
-https://gitlab.com/your-username/myPrompt/-/tree/main/reading
+```yaml
+---
+name: skill-name                  # 必须与目录名一致
+kind: local-skill
+inputMode: page | mixed | chat    # 输入模式
+description: 简短描述              # 用于 Skill 列表展示
+metadata:
+  level: basic | intermediate | advanced
+  language: zh | en
+  author: Your Name
+  version: 1.0.0
+  status: active | draft | deprecated
+---
 ```
 
-## Contributing
+### 输入模式说明
 
-Feel free to submit issues or pull requests to add new skills or improve existing ones.
+- `page`：需要页面内容（PDF、网页等）
+- `mixed`：可接受页面或对话输入
+- `chat`：纯对话模式
 
-## License
+## 模板资源
+
+`templates/` 目录包含非 Skill 的参考资源：
+
+- `paper-note.md`：论文阅读笔记空白模板
+- `project-checklist.md`：项目管理检查清单
+
+这些文件不可作为 Skill 调用，但可作为工作参考模板使用。
+
+## GitLab 支持
+
+Axon 同时支持 GitLab URL 格式：
+
+```
+https://gitlab.com/user/myPrompt/-/raw/main/reading/paper-analysis/skill.md
+https://gitlab.com/user/myPrompt/-/tree/main/reading
+```
+
+## 贡献指南
+
+欢迎提交 Issue 或 Pull Request 添加新 Skill 或改进现有 Skill。
+
+## 许可证
 
 MIT License

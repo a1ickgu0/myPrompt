@@ -1,42 +1,55 @@
 {
   "name": "Axon Skill Templates",
   "description": "Skill templates for Axon AI assistant",
-  "version": "1.0.0",
-  "skills": [
+  "version": "2.0.0",
+  "categories": [
     {
-      "name": "项目综合分析",
-      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/project-analysis/SKILL.md",
-      "category": "project-analysis",
-      "tags": ["project", "management", "software", "engineering", "pmbok", "swebok", "ipd", "cmmi"],
-      "level": "advanced"
+      "name": "reading",
+      "description": "阅读类 Skills - 结构化内容理解与信息提取",
+      "skills": [
+        {
+          "name": "paper-analysis",
+          "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/paper-analysis/skill.md",
+          "description": "从产品研发视角解读学术论文，提取技术创新与产品应用机会",
+          "level": "intermediate"
+        },
+        {
+          "name": "news-briefing",
+          "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/news-briefing/skill.md",
+          "description": "从新闻报道中提取核心事实，生成结构化简报",
+          "level": "basic"
+        },
+        {
+          "name": "industry-intelligence",
+          "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/industry-intelligence/skill.md",
+          "description": "面向行业新闻报告、技术大会与厂商技术文章的结构保真翻译、专家洞察分析与咨询式输出",
+          "level": "advanced"
+        }
+      ]
     },
     {
-      "name": "阅读类 Skills",
-      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/SKILL.md",
-      "category": "reading",
-      "tags": ["reading", "comprehension", "analysis"],
-      "level": "intermediate"
+      "name": "project",
+      "description": "项目类 Skills - 项目管理与软件工程分析咨询",
+      "skills": [
+        {
+          "name": "comprehensive-analysis",
+          "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/project/comprehensive-analysis/skill.md",
+          "description": "综合运用 PMBOK、SWEBOK、IPD、CMMI 框架，全面分析项目管理、软件工程实践、产品开发流程和组织能力成熟度",
+          "level": "advanced"
+        }
+      ]
+    }
+  ],
+  "templates": [
+    {
+      "name": "paper-note",
+      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/templates/paper-note.md",
+      "description": "论文阅读笔记模板"
     },
     {
-      "name": "论文阅读与解读",
-      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/paper-analysis/SKILL.md",
-      "category": "reading",
-      "tags": ["academic", "research", "paper"],
-      "level": "intermediate"
-    },
-    {
-      "name": "新闻简报生成",
-      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/news-briefing/SKILL.md",
-      "category": "reading",
-      "tags": ["news", "briefing", "summary"],
-      "level": "basic"
-    },
-    {
-      "name": "技术文档解读",
-      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/reading/technical-doc/SKILL.md",
-      "category": "reading",
-      "tags": ["technical", "documentation", "api"],
-      "level": "intermediate"
+      "name": "project-checklist",
+      "url": "https://raw.githubusercontent.com/a1ickgu0/myPrompt/main/templates/project-checklist.md",
+      "description": "项目管理检查清单（基于 PMBOK）"
     }
   ]
 }
